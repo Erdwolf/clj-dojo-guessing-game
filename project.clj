@@ -4,7 +4,8 @@
                  [ring/ring-defaults "0.1.5"]
                  [org.clojure/clojurescript "1.7.228"]
                  [org.clojure/core.async "0.2.374" :exclusions [org.clojure/tools.reader]]
-                 [reagent "0.6.0-alpha"]]
+                 [reagent "0.6.0-alpha"]
+                 [cljs-http "0.1.39"]]
 
   :plugins [[lein-figwheel "0.5.0-5"]
             [lein-cljsbuild "1.1.2" :exclusions [[org.clojure/clojure]]]]
