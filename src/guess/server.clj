@@ -6,9 +6,9 @@
 
 (def secret (atom (inc (rand-int 30))))
 
-(defn guess [number] (cond (= @guess number) "correct"
-                           (< @guess number) "lower"
-                           (> @guess number) "higher"))
+(defn guess [number] (cond (= @secret number) "equal to"
+                           (< @secret number) "lower than"
+                           (> @secret number) "higher than"))
 
 (defroutes app-routes
   (GET "/" [] (content-type (resource-response "index.html" {:root "public"})
