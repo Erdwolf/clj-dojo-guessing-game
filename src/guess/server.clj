@@ -1,6 +1,7 @@
 (ns guess.server
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
+            [hiccup.core :refer :all]
             [ring.util.response :refer [resource-response content-type]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]))
 
@@ -11,8 +12,8 @@
                            (> @secret number) "higher than"))
 
 (defroutes app-routes
-  (GET "/" [] (content-type (resource-response "index.html" {:root "public"})
-                            "text/html"))
+  (GET "/" [] (html [:div#app]
+                    [:script {:src "js/compiled/guess.js"}]))
   (POST "/guess/:number" [number] (guess (Integer/parseInt number)))
   (route/not-found "Not Found"))
 
